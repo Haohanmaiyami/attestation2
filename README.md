@@ -1,13 +1,83 @@
-Username (leave blank to use 'ayankharitonov'): admin
+# Аттестационная работа "Онлайн-платформа торговой сети электроники"
+
+## 🧱  Технологии
+
+- Python 3.8+ (проверено на 3.13)
+- Django 3+
+- Django REST Framework 3.10+
+- PostgreSQL 10+
+- django-filters
+
+## Основная структура:
+```
+attestation2/
+├─ config/                 # Django-проект (settings/urls)
+├─ online_platform/        # Приложение: модели/вью/сериалайзеры/админка
+└─ manage.py
+```
+
+## Админка: http://127.0.0.1:8000/admin/
+
+## API: http://127.0.0.1:8000/api/
+
+## 🔐 Права доступа
+
+Все эндпоинты защищены: нужны аккаунт + статус сотрудника
+(is_authenticated, is_active=True, is_staff=True).
+
+В Postman выбирайте Basic Auth (логин/пароль staff-пользователя).
+
+## 📡 Эндпоинты
+
+Базовый префикс: /api/
+
+### Products
+- GET /products/ — список
+- POST /products/ — создать
+- GET /products/{id}/ — получить
+- PUT/PATCH /products/{id}/ — обновить
+- DELETE /products/{id}/ — удалить
+
+## Network Units (звенья/поставщики)
+
+- GET /units/ — список (поддерживает ?country=USA)
+- POST /units/ — создать
+- GET /units/{id}/ — получить
+- PUT/PATCH /units/{id}/ — обновить
+- ️ Поле debt — только чтение, через API не меняется.
+- DELETE /units/{id}/ — удалить
+
+### Фильтрация по стране:
+
+- GET /api/units/?country=USA
+
+📦 Пример сид-данных (ID из Postman)
+
+### Продукты:
+- TV_ID=1, PHONE_ID=2, LAPTOP_ID=3, VAC_ID=4, FRIDGE_ID=5
+### Заводы:
+- ЭлектроПапа=1, ПандаТех=2
+### Розница:
+- РозеткаMix=3, Гаджетоград=4
+### ИП:
+- Иван Паяльник=5, Миссис Отвёртка=6
+
+# Установка зависимостей
+```
+poetry install
+```
+# Миграции
+```
+poetry run python manage.py migrate
+```
+# Запуск
+```
+poetry run python manage.py runserver
+```
+
+
+Username: admin
 Email address: admin@mail.ru
-Password: 
-Password (again): 
-The password is too similar to the username.
-This password is too short. It must contain at least 8 characters.                                                                                                               
-This password is too common.                                                                                                                                                     
-Bypass password validation and create user anyway? [y/N]: y                                                                                                                      
-Superuser created successfully.
-(attestation2-py3.13) ayankharitonov@Mac attestation2 % 
 
 
 TV_ID=1, PHONE_ID=2, LAPTOP_ID=3, VAC_ID=4, FRIDGE_ID=5.
@@ -15,5 +85,5 @@ TV_ID=1, PHONE_ID=2, LAPTOP_ID=3, VAC_ID=4, FRIDGE_ID=5.
 «РозеткаMix» = 3, «Гаджетоград» = 4 (RETAIL_MIX_ID и GADGETOGRAD_ID)
 IP_IVAN_ID=5 и IP_MRS_ID=6 (это ИП)
 
-DONE
+
 
