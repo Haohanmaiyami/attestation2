@@ -85,5 +85,7 @@ TV_ID=1, PHONE_ID=2, LAPTOP_ID=3, VAC_ID=4, FRIDGE_ID=5.
 «РозеткаMix» = 3, «Гаджетоград» = 4 (RETAIL_MIX_ID и GADGETOGRAD_ID)
 IP_IVAN_ID=5 и IP_MRS_ID=6 (это ИП)
 
+ФИНАЛ
+
 
 

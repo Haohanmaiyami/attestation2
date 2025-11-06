@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Product, NetworkUnit
+from django.core.exceptions import ValidationError as DjangoValidationError
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
