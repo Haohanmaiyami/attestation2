@@ -1,61 +1,63 @@
-Attestation project "Online Platform for an Electronics Retail Chain"
+# Attestation project "Online Platform for an Electronics Retail Chain"
 
-🧱 Technologies
-Python 3.8+ (tested on 3.13)
-Django 3+
-Django REST Framework 3.10+
-PostgreSQL 10+
-django-filters
+## 🧱 Technologies
+- Python 3.8+ (tested on 3.13)
+- Django 3+
+- Django REST Framework 3.10+
+- PostgreSQL 10+
+- django-filters
 
-Main structure:
+## Main structure:
+```
 electronics-retail-chain-api/
 ├─ config/                 # Django project (settings/urls)
 ├─ online_platform/        # Application: models/views/serializers/admin
 └─ manage.py
+```
 
-Admin panel: http://127.0.0.1:8000/admin/
-API: http://127.0.0.1:8000/api/
+## Admin panel: http://127.0.0.1:8000/admin/
+## API: http://127.0.0.1:8000/api/
 
-🔐 Access control
+## 🔐 Access control
 All endpoints are protected: you need an account + staff status (is_authenticated, is_active=True, is_staff=True).
 
 In Postman, use Basic Auth (login/password of a staff user).
 
-📡 Endpoints
+## 📡 Endpoints
 Base prefix: /api/
 
-Products
-GET /products/ — list
-POST /products/ — create
-GET /products/{id}/ — retrieve
-PUT/PATCH /products/{id}/ — update
-DELETE /products/{id}/ — delete
+## Products
+- GET /products/ — list
+- POST /products/ — create
+- GET /products/{id}/ — retrieve
+- PUT/PATCH /products/{id}/ — update
+- DELETE /products/{id}/ — delete
 
-Network Units (chain links / suppliers)
-GET /units/ — list (supports ?country=USA)
-POST /units/ — create
-GET /units/{id}/ — retrieve
-PUT/PATCH /units/{id}/ — update  
-️Field `debt` — read-only, cannot be changed via API.
-DELETE /units/{id}/ — delete
+## Network Units (chain links / suppliers)
+- GET /units/ — list (supports ?country=USA)
+- POST /units/ — create
+- GET /units/{id}/ — retrieve
+- PUT/PATCH /units/{id}/ — update  
+️- Field `debt` — read-only, cannot be changed via API.
+- DELETE /units/{id}/ — delete
 
-Filter by country:
-GET /api/units/?country=USA
+### Filter by country:
+- GET /api/units/?country=USA
 
 📦 Example seed data (IDs from Postman)
 
-Products:
+### Products:
 TV_ID=1, PHONE_ID=2, LAPTOP_ID=3, VAC_ID=4, FRIDGE_ID=5
 
-Factories (заводы):
+### Factories (заводы):
 «ЭлектроПапа» (ElectroPapa) = 1  
 «ПандаТех» (PandaTech) = 2
 
-Retail (розничные магазины):
+### Retail (розничные магазины):
 «РозеткаMix» (RozetkaMix) = 3  
 «Гаджетоград» (Gadgetograd) = 4
 
-Individual entrepreneurs (ИП):
+### Individual entrepreneurs (ИП):
 «Иван Паяльник» = 5  
 «Миссис Отвёртка» = 6
 
@@ -74,12 +76,14 @@ poetry run python manage.py migrate
 poetry run python manage.py runserver
 ```
 
-Username: admin   Email address: admin@mail.ru
+Username: admin   
+Email address: admin@mail.ru
 
 TV_ID=1, PHONE_ID=2, LAPTOP_ID=3, VAC_ID=4, FRIDGE_ID=5.  
-Завод «ЭлектроПапа» = 1 и завод «ПандаТех» = 2 (FACTORY_A_ID и FACTORY_B_ID).  
-«РозеткаMix» = 3, «Гаджетоград» = 4 (RETAIL_MIX_ID и GADGETOGRAD_ID).  
-IP_IVAN_ID=5 и IP_MRS_ID=6 (это ИП).
+
+- Завод «ЭлектроПапа» = 1 и завод «ПандаТех» = 2 (FACTORY_A_ID и FACTORY_B_ID).  
+- «РозеткаMix» = 3, «Гаджетоград» = 4 (RETAIL_MIX_ID и GADGETOGRAD_ID).  
+- IP_IVAN_ID=5 и IP_MRS_ID=6 (это ИП).
 
 
 
