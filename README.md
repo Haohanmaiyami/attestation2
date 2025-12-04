@@ -1,5 +1,8 @@
 # Attestation project "Online Platform for an Electronics Retail Chain"
 
+Attestation project: backend service for an electronics retail chain.
+Implemented a REST API to manage products and network units (factories, retail stores, individual entrepreneurs) with staff authentication and country-based filtering. Data is stored in PostgreSQL and the API is built with Django REST Framework.
+
 ## 🧱 Technologies
 - Python 3.8+ (tested on 3.13)
 - Django 3+
